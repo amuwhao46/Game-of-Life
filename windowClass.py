@@ -18,8 +18,14 @@ class Window:
     
     def update(self):
         self.rect.topleft = self.pos
+        for row in self.grid:
+            for cell in row:
+                cell.update()
 
 
     def draw(self):
         self.image.fill((100, 100, 100))
+        for row in self.grid:
+            for cell in row:
+                cell.draw()
         self.screen.blit(self.image, (self.pos.x, self.pos.y))
