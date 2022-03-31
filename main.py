@@ -21,7 +21,7 @@ def update():
 
 def draw():
     screen.fill(BACKGROUND)
-    window.draw
+    window.draw()
 
 #Main
 pygame.init() 
@@ -30,7 +30,6 @@ clock = pygame.time.Clock()
 window = Window(screen, 10, 10)
 
 running = True
-
 #Checks these on a functions while "running"
 while running:
     getEvents()
