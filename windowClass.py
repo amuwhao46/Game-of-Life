@@ -1,4 +1,5 @@
 import pygame
+from cellClass import *
 vec = pygame.math.Vector2 #Pygames vector library
 
 class Window:
@@ -9,6 +10,11 @@ class Window:
         self.width, self.height = 800, 400 #Game interface size
         self.image = pygame.Surface((self.width, self.height))
         self.rect = self.image.get_rect()
+
+        #Grid
+        self.row = 10
+        self.col = 10
+        self.grid = [[Cell for x in range(self.col)] for x in range(self.row)]
     
     def update(self):
         self.rect.topleft = self.pos

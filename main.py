@@ -1,6 +1,6 @@
-#from pickle import TRUE
+from pickle import TRUE
 import sys
-#from turtle import width
+from turtle import width
 import pygame
 from windowClass import *
 
@@ -15,7 +15,6 @@ def getEvents():
     for event in pygame.event.get(): #Returns list of events since last call
         if event.type == pygame.QUIT:
              running = False
-
 def update():
     window.update() 
 
@@ -27,7 +26,7 @@ def draw():
 pygame.init() 
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 clock = pygame.time.Clock()
-window = Window(screen, 10, 10)
+window = Window(screen, 80, 120) #positioned center, bottom
 
 running = True
 #Checks these on a functions while "running"
