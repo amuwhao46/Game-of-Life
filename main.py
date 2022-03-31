@@ -4,7 +4,9 @@ from turtle import width
 import pygame
 
 #Constants
-WIDTH, HEIGHT = 1080, 1080
+WIDTH, HEIGHT = 960, 540
+BACKGROUND = (120, 120, 120)
+FPS = 60 #Refresh rate
 
 #Functions
 def getEvents():
@@ -14,18 +16,23 @@ def getEvents():
              running = False
 
 def update():
-    break 
+    pass 
 
 def draw():
-    break
+    screen.fill(BACKGROUND)
 
+#Main
 pygame.init()
-window = pygame.display.set_mode((WIDTH, HEIGHT))
-
+screen = pygame.display.set_mode((WIDTH, HEIGHT))
+clock = pygame.time.Clock()
 running = True
+
+#Checks these on a functions while "running"
 while running:
     getEvents()
     update()
     draw()
+    pygame.display.update()
+    clock.tick(FPS)
 pygame.quit()
 sys.exit()
