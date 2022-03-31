@@ -20,14 +20,14 @@ def update():
     window.update() 
 
 def draw():
-    window.draw
     screen.fill(BACKGROUND)
+    window.draw
 
 #Main
 pygame.init() 
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 clock = pygame.time.Clock()
-window = Window(screen, x, y)
+window = Window(screen, 10, 10)
 
 running = True
 
