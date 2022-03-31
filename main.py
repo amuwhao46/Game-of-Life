@@ -1,7 +1,8 @@
-from pickle import TRUE
+#from pickle import TRUE
 import sys
-from turtle import width
+#from turtle import width
 import pygame
+from windowClass import *
 
 #Constants
 WIDTH, HEIGHT = 960, 540
@@ -16,15 +17,18 @@ def getEvents():
              running = False
 
 def update():
-    pass 
+    window.update() 
 
 def draw():
+    window.draw
     screen.fill(BACKGROUND)
 
 #Main
-pygame.init()
+pygame.init() 
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 clock = pygame.time.Clock()
+window = Window(screen, x, y)
+
 running = True
 
 #Checks these on a functions while "running"
