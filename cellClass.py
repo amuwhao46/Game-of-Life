@@ -4,7 +4,7 @@ import random
 class Cell:
     #Constructor
     def __init__(self, surface, gridX, gridY):
-        #self.alive = random.choice([True, False])
+        #self.alive = random.choice([True, False, False, False])
         self.alive = False
         self.surface = surface
         self.gridX = gridX
@@ -17,8 +17,8 @@ class Cell:
 
     def draw(self):
         if self.alive:
-            self.image.fill((0, 0, 0)) #Alive
+            self.image.fill((255, 255, 255)) #Alive
         else:
             self.image.fill((0, 0, 0)) #Border color
-            pygame.draw.rect(self.image, (255, 255, 255), (1, 1, 18, 18)) #Dead cell, and border size
+            pygame.draw.rect(self.image, (25, 25, 25), (1, 1, 18, 18)) #Dead cell, and border size
         self.surface.blit(self.image, (self.gridX * 20, self.gridY * 20)) #Shows squares in interface
