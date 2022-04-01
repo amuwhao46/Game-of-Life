@@ -13,6 +13,26 @@ def getEvents():
     for event in pygame.event.get(): #Returns list of events since last call
         if event.type == pygame.QUIT:
              running = False
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            mousePos = pygame.mouse.get_pos()
+            if mouseOnGrid(mousePos):
+                clickCell(mousePos)
+                #print(mousePos) (Debugging)
+
+#mOG & cC used to track cell click state
+def mouseOnGrid(pos):
+    if pos[0] > 80 and pos[0] < WIDTH - 80:
+        if pos[1] > 120 and pos[1] < HEIGHT - 20:
+            return True
+        return False
+
+def clickCell(pos):
+    grid_pos = [pos[0] - 80, pos[1] - 120]
+    grid_pos[0] = grid_pos[0] // 20 #X pos
+    grid_pos[1] = grid_pos[1] // 20 #Y pos
+    window.grid[grid_pos[1]][grid_pos[0]].alive = True #Sets dead cell alive when clicked
+    #print("oooh tickles haha") (Debugging)
+
 def update():
     window.update() 
 

@@ -1,8 +1,10 @@
 import pygame
+import random
 
 class Cell:
     #Constructor
     def __init__(self, surface, gridX, gridY):
+        #self.alive = random.choice([True, False])
         self.alive = False
         self.surface = surface
         self.gridX = gridX
