@@ -14,7 +14,7 @@ class Window:
         #Grid
         self.row = 10
         self.col = 10
-        self.grid = [[Cell for x in range(self.col)] for x in range(self.row)]
+        self.grid = [[Cell(self.image) for x in range(self.col)] for x in range(self.row)]
     
     def update(self):
         self.rect.topleft = self.pos

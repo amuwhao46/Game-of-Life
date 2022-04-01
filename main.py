@@ -1,6 +1,4 @@
-from pickle import TRUE
 import sys
-from turtle import width
 import pygame
 from windowClass import *
 
