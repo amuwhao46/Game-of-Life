@@ -14,4 +14,9 @@ class Cell:
         self.rect.topleft = (self.gridX * 20, self.gridY * 20)
 
     def draw(self):
-        pygame.draw()
+        if self.alive:
+            self.image.fill((0, 0, 0)) #Alive
+        else:
+            self.image.fill((0, 0, 0)) #Border color
+            pygame.draw.rect(self.image, (255, 255, 255), (2, 2, 16, 16)) #Dead cell, and border size
+        self.surface.blit(self.image, (self.gridX * 20, self.gridY * 20)) #Shows squares in interface
