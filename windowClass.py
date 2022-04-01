@@ -12,8 +12,8 @@ class Window:
         self.rect = self.image.get_rect()
 
         #Grid
-        self.row = 10
-        self.col = 10
+        self.row = 20
+        self.col = 40
         self.grid = [[Cell(self.image, x, y) for x in range(self.col)] for y in range(self.row)]
     
     def update(self):
