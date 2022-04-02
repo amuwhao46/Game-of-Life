@@ -30,8 +30,10 @@ def clickCell(pos):
     grid_pos = [pos[0] - 80, pos[1] - 120]
     grid_pos[0] = grid_pos[0] // 20 #X pos
     grid_pos[1] = grid_pos[1] // 20 #Y pos
+
+    #Sets cell dead/alive when clicked
     if window.grid[grid_pos[1]][grid_pos[0]].alive:
-        window.grid[grid_pos[1]][grid_pos[0]].alive = False #Sets cell dead/alive when clicked
+        window.grid[grid_pos[1]][grid_pos[0]].alive = False
     else:
         window.grid[grid_pos[1]][grid_pos[0]].alive = True
     #print("Clicked") (Debugging)
