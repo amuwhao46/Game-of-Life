@@ -27,16 +27,21 @@ class Cell:
     def getNeighbor(self, grid):
         #tracks surrounding cells
         neighborList = [[0,1], [1,0], [1,1], [-1,0], [0,-1], [1,-1], [-1,-1], [-1,1]]
-        for neigh in neighborList:
-            neigh[0] += self.gridX
-            neigh[1] += self.gridY
+        for neighbor in neighborList:
+            neighbor[0] += self.gridX
+            neighbor[1] += self.gridY
         
-        for neigh in neighborList:
-            if neigh[0] < 0:
-                neigh[0] += 30
-            if neigh[1] < 0:
-                neigh[1] += 30
-            if neigh[0] > 29:
-                neigh[0] -= 30
-            if neigh[1] > 29:
-                neigh[1] -= 30
+        for neighbor in neighborList:
+            if neighbor[0] < 0:
+                neighbor[0] += 20
+            if neighbor[1] < 0:
+                neighbor[1] += 40
+            if neighbor[0] > 19:
+                neighbor[0] -= 20
+            if neighbor[1] > 39:
+                neighbor[1] -= 40
+        for neighbor in neighborList:
+            try:
+                self.neighbor.append(grid[neighbor[1]][neighbor[0]])
+            except:
+                print(neighbor)
