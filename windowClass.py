@@ -15,6 +15,9 @@ class Window:
         self.row = 20
         self.col = 40
         self.grid = [[Cell(self.image, x, y) for x in range(self.col)] for y in range(self.row)]
+        for row in self.grid:
+            for cell in row:
+                cell.getNeighbor(self.grid)
     
     def update(self):
         self.rect.topleft = self.pos

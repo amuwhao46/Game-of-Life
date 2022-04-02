@@ -28,18 +28,18 @@ class Cell:
         #tracks surrounding cells
         neighborList = [[0,1], [1,0], [1,1], [-1,0], [0,-1], [1,-1], [-1,-1], [-1,1]]
         for neighbor in neighborList:
-            neighbor[0] += self.gridX
-            neighbor[1] += self.gridY
+            neighbor[0] += self.gridX #Left to right
+            neighbor[1] += self.gridY #Top to bottom
         
         for neighbor in neighborList:
             if neighbor[0] < 0:
-                neighbor[0] += 20
+                neighbor[0] += 40
             if neighbor[1] < 0:
-                neighbor[1] += 40
-            if neighbor[0] > 19:
-                neighbor[0] -= 20
-            if neighbor[1] > 39:
-                neighbor[1] -= 40
+                neighbor[1] += 20
+            if neighbor[0] > 39:
+                neighbor[0] -= 40
+            if neighbor[1] > 19:
+                neighbor[1] -= 20
         for neighbor in neighborList:
             try:
                 self.neighbor.append(grid[neighbor[1]][neighbor[0]])
