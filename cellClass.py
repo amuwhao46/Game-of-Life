@@ -13,16 +13,21 @@ class Cell:
         self.rect = self.image.get_rect()
         self.neighbor = []
         self.checker = False #looks for adjacent neighbors
+        self.aliveNeighbor = 0
 
     def update(self):
         self.rect.topleft = (self.gridX * 20, self.gridY * 20)
         for cell in self.neighbor:
             if self.alive:
                 self.checker = True
+        for cell in self.neighbor:
+            if self.alive:
+                self.aliveNeighbor += 1
 
     def draw(self):
         if self.alive:
             self.image.fill((255, 255, 255)) #Alive
+            # print(self.alive)
         else:
             self.image.fill((0, 0, 0)) #Border color
             pygame.draw.rect(self.image, (25, 25, 25), (1, 1, 18, 18)) #Dead cell, and border size
@@ -35,6 +40,7 @@ class Cell:
             neighbor[0] += self.gridX #Left to right
             neighbor[1] += self.gridY #Top to bottom
         
+        #bounderies  
         for neighbor in neighborList:
             if neighbor[0] < 0:
                 neighbor[0] += 40
