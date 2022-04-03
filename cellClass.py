@@ -12,9 +12,13 @@ class Cell:
         self.image = pygame.Surface((20, 20))
         self.rect = self.image.get_rect()
         self.neighbor = []
+        self.checker = False #looks for adjacent neighbors
 
     def update(self):
         self.rect.topleft = (self.gridX * 20, self.gridY * 20)
+        for cell in self.neighbor:
+            if self.alive:
+                self.checker = True
 
     def draw(self):
         if self.alive:
@@ -24,8 +28,8 @@ class Cell:
             pygame.draw.rect(self.image, (25, 25, 25), (1, 1, 18, 18)) #Dead cell, and border size
         self.surface.blit(self.image, (self.gridX * 20, self.gridY * 20)) #Shows squar es in interface
     
+    #tracks surrounding cells
     def getNeighbor(self, grid):
-        #tracks surrounding cells
         neighborList = [[0,1], [1,0], [1,1], [-1,0], [0,-1], [1,-1], [-1,-1], [-1,1]]
         for neighbor in neighborList:
             neighbor[0] += self.gridX #Left to right
