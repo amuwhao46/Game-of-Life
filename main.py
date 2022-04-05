@@ -1,6 +1,7 @@
 import sys
 import pygame
 from windowClass import *
+from buttonClass import *
 
 #Constants
 WIDTH, HEIGHT = 960, 540
@@ -37,6 +38,10 @@ def clickCell(pos):
     else:
         window.grid[grid_pos[1]][grid_pos[0]].alive = True
     #print("Clicked") (Debugging)
+
+#Buttons to control the game
+def buttons():
+     
 
 def update():
     window.update() 
