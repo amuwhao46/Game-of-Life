@@ -12,14 +12,10 @@ class Cell:
         self.image = pygame.Surface((20, 20))
         self.rect = self.image.get_rect()
         self.neighbor = []
-        self.checker = False #looks for adjacent neighbors
-        self.aliveNeighbor = 0
+        self.aliveNeighbor = 0 
 
     def update(self):
         self.rect.topleft = (self.gridX * 20, self.gridY * 20)
-        for cell in self.neighbor:
-            if self.alive:
-                self.checker = True
         for cell in self.neighbor:
             if self.alive:
                 self.aliveNeighbor += 1

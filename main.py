@@ -8,6 +8,7 @@ WIDTH, HEIGHT = 960, 540
 BACKGROUND = (120, 120, 120)
 FPS = 60 #Refresh rate
 
+
 #Functions
 def getEvents():
     global running
@@ -18,7 +19,18 @@ def getEvents():
             mousePos = pygame.mouse.get_pos()
             if mouseOnGrid(mousePos):
                 clickCell(mousePos)
-                #print(mousePos) (Debugging)
+                #print(mousePos) #(Debugging)
+
+def update():
+    window.update() 
+    for button in buttons:
+        button.update(mousePos)
+
+def draw():
+    screen.fill(BACKGROUND)
+    for button in buttons:
+        button.draw()
+    window.draw()
 
 #mOG & cC used to track cell click state
 def mouseOnGrid(pos):
@@ -37,28 +49,24 @@ def clickCell(pos):
         window.grid[grid_pos[1]][grid_pos[0]].alive = False
     else:
         window.grid[grid_pos[1]][grid_pos[0]].alive = True
-    #print("Clicked") (Debugging)
+    #print("Clicked") #(Debugging)
 
-#Buttons to control the game
-def buttons():
-     
-
-def update():
-    window.update() 
-
-def draw():
-    screen.fill(BACKGROUND)
-    window.draw()
+def makeButton():
+    buttons = []
+    buttons.append(Button(window, WIDTH//2 - 50, 50, 100, 20, text='Run', colour = (10, 140, 30), hover_colour = (40, 180, 70)))
+    return buttons
 
 #Main
 pygame.init() 
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 clock = pygame.time.Clock()
 window = Window(screen, 80, 120) #positioned center, bottom
+buttons = makeButton()
 
 running = True
 #Checks these on a functions while "running"
 while running:
+    mousePos = pygame.mouse.get_pos()
     getEvents()
     update()
     draw()
