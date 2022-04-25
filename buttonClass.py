@@ -2,7 +2,9 @@ import pygame
 vec = pygame.math.Vector2
 
 class Button: 
-    def __init__(self, surface, x, y, width, height, state='', id='', function=0, colour=(255, 255, 255), hover_colour=(255, 255, 255), border=True, border_width=2, border_colour=(0, 0, 0), text='', font_name='arial', text_size=20, text_colour=(0, 0, 0), bold_text=False):
+    def __init__(self, surface, x, y, width, height, state='', id='', 
+                function=0, colour=(255, 255, 255), hover_colour=(255, 255, 255), border=True, border_width=2, 
+                border_colour=(0, 0, 0), text='', font_name='arial', text_size=20, text_colour=(0, 0, 0), bold_text=False):
         self.type = 'button'
         self.x = x
         self.y = y
